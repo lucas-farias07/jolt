@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 
+#abs path
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
-__config_path = Path(__file__).parent.parent.parent / "config.json"
+BASE_DIR = Path(__file__).resolve().parent
 
-with open(__config_path, "r") as file:
-    configuration: dict[str, str | int | None] = json.load(file)
-    print(configuration)
+with open(ROOT_DIR / "config.json") as f:
+    configuration = json.load(f)
